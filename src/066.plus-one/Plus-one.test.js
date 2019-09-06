@@ -1,4 +1,4 @@
-import plusOne from "./Plus-one.js";
+import plusOne from './Plus-one.js'
 
 /* 
 
@@ -22,13 +22,25 @@ Explanation: The array represents the integer 4321.
 
 */
 
-describe("Plus One", () => {
-  test("digits is [1,2,3] should return [1,2,4]", () => {
-    const digits = [1,2,3];
-    expect(plusOne(digits)).toEqual([1,2,4]);
-  });
-  test("digits is [4,3,2,1] should return [4,3,2,2]", () => {
-    const digits = [4,3,2,1];
-    expect(plusOne(digits)).toEqual([4,3,2,2]);
-  });
-});
+describe('Plus One', () => {
+    test('digits is [0] should return [1]', () => {
+        const digits = [0]
+        expect(plusOne(digits)).toEqual([1])
+    })
+    test('digits is [1,2,3] should return [1,2,4]', () => {
+        const digits = [1, 2, 3]
+        expect(plusOne(digits)).toEqual([1, 2, 4])
+    })
+    test('digits is [1,9,9] should return 2,0,0]', () => {
+        const digits = [1,9,9]
+        expect(plusOne(digits)).toEqual([2,0,0])
+    })
+    test('digits is [9] should return [1,0]', () => {
+        const digits = [9]
+        expect(plusOne(digits)).toEqual([1,0])
+    })
+    test('digits is [9,9,9,9] should return [1,0,0,0,0]', () => {
+        const digits = [9,9,9,9]
+        expect(plusOne(digits)).toEqual([1,0,0,0,0])
+    })
+})

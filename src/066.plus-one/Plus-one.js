@@ -25,7 +25,31 @@ Explanation: The array represents the integer 4321.
  * @return {number[]}
  */
 
+// var plusOne = function(digits) {
+//     digits[0]++
+//     return digits
+// }
+// var plusOne = function(digits) {
+//     digits[0]++
+//     if (digits[0] > 9) {
+//         digits[0] = 0
+//     } else {
+//         return digits
+//     }
+//     digits.unshift(1)
+//     return digits
+// }
 var plusOne = function(digits) {
+    for (var i = digits.length - 1; i >= 0; i--) {
+        if (digits[i] < 9) {
+            digits[i]++
+            return digits
+        } else {
+            digits[i] = 0
+        }
+    }
+    digits.unshift(1)
+    return digits
+}
 
-};
-export default plusOne;
+export default plusOne
