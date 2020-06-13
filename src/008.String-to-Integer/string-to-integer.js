@@ -3,11 +3,16 @@
  * @return {number}
  */
 const myAtoi = function (str) {
-    return Array.from(str)
-        .reverse()
-        .reduce((accumulator, current, index) => {
-            const digits = Math.pow(10, index)
-            return accumulator + current * digits
-        }, 0)
+    const target = str.trim()
+    const sign = target[0] === '-' ? -1 : 1
+    return (
+        Array.from(target)
+            .reverse()
+            .reduce((accumulator, current, index) => {
+                const digits = Math.pow(10, index)
+                const currentNumber = current * digits
+                return isNaN(currentNumber) ? accumulator : accumulator + currentNumber
+            }, 0) * sign
+    )
 }
 export default myAtoi
