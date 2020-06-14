@@ -2,17 +2,20 @@
  * @param {string} str
  * @return {number}
  */
+
 const myAtoi = function (str) {
     const target = str.trim()
     const sign = target[0] === '-' ? -1 : 1
-    return (
-        Array.from(target)
-            .reverse()
-            .reduce((accumulator, current, index) => {
-                const digits = Math.pow(10, index)
-                const currentNumber = current * digits
-                return isNaN(currentNumber) ? accumulator : accumulator + currentNumber
-            }, 0) * sign
-    )
+    let result = 0
+    let index = 0
+    for (let i = target.length; i >= 0; i--) {
+        const digits = Math.pow(10, index)
+        const currentNumber = target[i] * digits
+        if (currentNumber) {
+            result += currentNumber
+            index++
+        }
+    }
+    return result * sign
 }
 export default myAtoi
