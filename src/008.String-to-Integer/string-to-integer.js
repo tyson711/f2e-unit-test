@@ -4,6 +4,7 @@
  */
 
 const myAtoi = function (str) {
+    if (isNaN(str[0]) && isNaN(str[1])) return 0
     const target = str.trim()
     const sign = target[0] === '-' ? -1 : 1
     let result = 0
